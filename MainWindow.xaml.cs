@@ -25,7 +25,28 @@ namespace PaintApp
 
         private void BrushSizeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+            if (BrushSizeComboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+
+                switch (selectedItem.Content.ToString())
+                {
+                    case "2":
+                        penSize = 2; 
+                        break;
+                    case "4":
+                        penSize = 4; 
+                        break;
+                    case "6":
+                        penSize = 6; 
+                        break;
+                    case "8":
+                        penSize = 8; 
+                        break;
+                    case "10":
+                        penSize = 10;
+                        break;
+                }
+            }
         }
 
         private void BrushColorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -96,6 +117,7 @@ namespace PaintApp
                         X2 = e.GetPosition(DrawingCanvas).X,
                         Y2 = e.GetPosition(DrawingCanvas).Y
                     };
+
                     DrawingCanvas.Children.Clear();
                     DrawingCanvas.Children.Add(line);
                 }
